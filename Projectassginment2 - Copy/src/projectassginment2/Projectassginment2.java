@@ -1,6 +1,6 @@
 package projectassginment2;
 import java.util.*;
-import ui.UI.*;
+import ui.UI;
 
 public class Projectassginment2 {
      
@@ -13,53 +13,66 @@ public class Projectassginment2 {
     private static void slotMachine()
     {
         boolean done = false;
-        while (done = false)
+        while (done == false)
         {
-            util.Scanner kb = new util.Scanner(System.in);
+            Scanner kb = new Scanner(System.in);
             int bet = UI.getInt(UI.Source.SCANNER, "please enter the amount you want to bet 1-1,000: ", 1, 1001, false);
-            util.List list;
-            list = util.ArrayList("a", "b", "c", "d", "e", "f", "*");
+            //System.out.println("please enter a number ");
+            //String bets = kb.nextLine();
+            //int bet = Integer.parseInt(bets);
+            ArrayList<String> list = new ArrayList<>();
+            list.add("a");
+            list.add("b");
+            list.add("c");
+            list.add("d");
+            list.add("e");
+            list.add("f");
+            list.add("*");
             //the main part where trandomness happens ending with a result
-            util.Random rand = new util.Random();
+            Random rand = new Random();
             int rand_int = rand.nextInt(7);
             int rand_int2 = rand.nextInt(7);
-            int rand_int3 = rand.nestInt(7);
+            int rand_int3 = rand.nextInt(7);
             String result = list.get(rand_int);
             String result2 = list.get(rand_int2);
             String result3 = list.get(rand_int3);
             System.out.println(result + result2 + result3);
-            if(result == result2 || result2 == result3 || result == result3)
+            if(result.equals(result2) || result2.equals(result3) || result.equals(result3))
             {
-                if(result == "*" && result2 == "*" && result3 == "*")
+                if(result.equals("*") && result2.equals("*") && result3.equals("*"))
                 {
-                    bets *= 9;
-                    System.out.println("you win" + bet);
+                    bet *= 9;
+                    System.out.println("you win " + bet);
                 }
-                else if(result == "*" || result2 == "*" || result3 == "*")
+                else if(result.equals("*") || result2.equals("*") || result3.equals("*"))
                 {
-                    bets *= 3;
-                    System.out.println("you win" + bet);
+                    bet *= 3;
+                    System.out.println("you win " + bet);
                 }
-                else if(result == result2 && result2 == result3)
+                else if(result.equals(result2) && result2.equals(result3))
                 {
-                    bets *= 3;
-                    System.out.println("you win" + bet);
+                    bet *= 3;
+                    System.out.println("you win " + bet);
+                }
+                else 
+                {
+                    System.out.println("you win " + bet);
                 }
             }
-            else if(result == "*" || result2 == "*" || result == "*")
+            else if(result.equals("*") || result2.equals("*") || result.equals("*"))
             {
-                bets *= 3; 
-                System.out.println("you win" + bet);
+                bet *= 3; 
+                System.out.println("you win " + bet);
             }
-            else()
+            else
             {
-                System.out.println("you lose" + bet);
+                System.out.println("you lose " + bet);
             }
             //if else statement
-            System.out.println("do you wish to play again");
+            System.out.println("do you wish to play again ");
             String ans = kb.nextLine();
             //if else statement
-            if(ans == "no" || ans == "No" || ans == "n" || ans == "N")
+            if(ans.equals("no") || ans.equals("No") || ans.equals("n") || ans.equals("N"))
             {
                done = true; 
             }
